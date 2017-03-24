@@ -1,0 +1,7 @@
+EGT-Exhaust gas temperature
+BTE-Brake thermal efficiency
+Nox-Oxides of Nitrogen
+HC-Unburnt hydrocarbons
+CO-Carbon monoxide
+RSO-Rubber seed oil
+
