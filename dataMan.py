@@ -33,14 +33,14 @@ def load_all_data():
     global norm_data
     norm_data = pickle.load(open('norm_dataObj.p', 'rb'))
     global mean_key
-    mean_key = pickle.load(open('mean_keyObj.p','rb'))
+    mean_key = pickle.load(open('mean_keyObj.p', 'rb'))
     global var_key
     var_key = pickle.load(open('var_keyObj.p', 'rb'))
     print("[+] Data loaded")
 
 
 def update_keys():
-    print('[+]Udating keys')
+    print('[+]Updating keys')
 
     global mean_key
     mean_key = []
@@ -54,7 +54,7 @@ def update_keys():
         for j in data[i]:
             tot += float(j)
             n += 1
-        mean_key.append(tot/n)
+        mean_key.append(tot / n)
         k += 1
 
     k = 0
@@ -77,8 +77,9 @@ def normalize():
     print('[+]normalizing ')
     for i in data:
         for j in range(len(data[i])):
-            norm_data[i][j] = (float(data[i][j])-mean_key[k])/var_key[k]
+            norm_data[i][j] = (float(data[i][j]) - mean_key[k]) / var_key[k]
         k += 1
+
 
 def save_all_data():
     print('[+]Saving all data')
@@ -88,7 +89,18 @@ def save_all_data():
     pickle.dump(var_key, open('var_keyObj.p', 'wb'))
     print('[+]Saved all data')
 
-load_all_data()
-update_keys()
-normalize()
-save_all_data()
+
+def get_mean_key():
+    return mean_key
+
+
+def get_var_key():
+    return var_key
+
+
+def get_data():
+    return data
+
+
+def get_norm_data():
+    return norm_data
